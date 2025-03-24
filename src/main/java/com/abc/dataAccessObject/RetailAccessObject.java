@@ -6,5 +6,6 @@ public interface RetailAccessObject {
 	void create(RetailModule product);
 	RetailModule read(int product_id);
 	// comments
+	// comment 2
 
 }
