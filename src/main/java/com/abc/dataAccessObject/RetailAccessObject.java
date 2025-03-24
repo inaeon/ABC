@@ -7,5 +7,6 @@ public interface RetailAccessObject {
 	RetailModule read(int product_id);
 	// comments
 	// comment 2
+	// commit 3
 
 }
