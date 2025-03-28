@@ -7,5 +7,6 @@ public interface RetailAccessObject {
 	RetailModule read(int product_id);
 	// comment1
 	// comment2 demo compile
+	// demo with compile and test goals
 	
 }
