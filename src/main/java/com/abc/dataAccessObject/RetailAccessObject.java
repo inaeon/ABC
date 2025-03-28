@@ -8,5 +8,6 @@ public interface RetailAccessObject {
 	// comment1
 	// comment2 demo compile
 	// demo with compile and test goals
+	// demo compile, test, and package goals
 	
 }
