@@ -1,0 +1,31 @@
+
+pipeline {
+	agent any {
+	stages {
+		state ('code checkout') {
+			steps {
+				git 'https://github.com/inaeon/ABC.git'
+			}
+		}
+		state ('code compile') {
+			steps {
+				sh 'mvn clean compile'
+			}
+		}
+		state ('code test') {
+			steps {
+				sh 'mvn test'
+			}
+		}
+		stage ('code package'){
+			steps {
+				sh 'mvn package'
+			}
+		}
+	
+	
+	
+	}
+	}
+
+}
