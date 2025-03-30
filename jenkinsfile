@@ -1,23 +1,24 @@
+groovy
 
 pipeline {
-	agent any {
+	agent any 
 	stages {
-		state ('code checkout') {
+		stage('code checkout') {
 			steps {
-				git 'https://github.com/inaeon/ABC.git'
+				git branch: 'main', url: 'https://github.com/inaeon/ABC.git'
 			}
 		}
-		state ('code compile') {
+		stage('code compile') {
 			steps {
 				sh 'mvn clean compile'
 			}
 		}
-		state ('code test') {
+		stage('code test') {
 			steps {
 				sh 'mvn test'
 			}
 		}
-		stage ('code package'){
+		stage('code package'){
 			steps {
 				sh 'mvn package'
 			}
@@ -26,6 +27,6 @@ pipeline {
 	
 	
 	}
-	}
+	
 
 }
