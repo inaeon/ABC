@@ -1,7 +1,11 @@
-groovy
 
 pipeline {
 	agent any 
+	environment {
+		IMAGE_NAME = "avdeshsainger/ABCtechnologies"
+	}
+	
+	
 	stages {
 		stage('code checkout') {
 			steps {
@@ -21,6 +25,24 @@ pipeline {
 		stage('code package'){
 			steps {
 				sh 'mvn package'
+			}
+		}
+		stage('build docker image') {
+			steps {
+				sh 'cp target/ABCtechnologies-1.0.war .'
+				sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+			}
+		}
+		stage('push docker image') {
+			steps {
+				withDockerRegisty([credentialsId: "avdeshsainger", url: ""]) {
+					sh "docker push ${IMAGE_NAME}:$(BUILD_NUMBER)}"
+				}
+			}
+		}
+		stage('deployment') {
+			steps {
+				sh "docker run -itd -p 8080:8080 --name abc_project_{BUILD_NUMBER} ${IMAGE_NAME}:${BUILD_NUMBER}"
 			}
 		}
 	
