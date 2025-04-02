@@ -2,7 +2,7 @@
 pipeline {
 	agent any 
 	environment {
-		IMAGE_NAME = "avdeshsainger/ABCtechnologies"
+		IMAGE_NAME = "avdeshsainger/abctechnologies"
 	}
 	
 	
