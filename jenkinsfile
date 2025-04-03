@@ -50,15 +50,15 @@ pipeline {
 					
 					
 					sh """
-					if [ \$(docker ps -q -f name=abc_project_${BUILD_NUMBER}) ]; then
-						docker stop abc_project_${BUILD_NUMBER}
-						docker rm abc_project_${BUILD_NUMBER}
+					if [ \$(docker ps -q -f name=abc_project_10) ]; then
+						docker stop abc_project_10
+						docker rm abc_project_10
 						
-					elif [ \$(docker ps -aq -f name=abc_project_${BUILD_NUMBER}) ]; then
-						docker rm abc_project_${BUILD_NUMBER}
+					elif [ \$(docker ps -aq -f name=abc_project_10) ]; then
+						docker rm abc_project_10
 						
 					fi
-					docker run -itd -p 8081:8080 --name abc_project_${BUILD_NUMBER} ${IMAGE_NAME}:${BUILD_NUMBER}
+					docker run -itd -p 8081:8080 --name abc_project ${IMAGE_NAME}:${BUILD_NUMBER}
 					"""			
 				}
 			}
