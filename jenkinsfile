@@ -58,7 +58,7 @@ pipeline {
 						docker rm abc_project
 						
 					fi
-					docker run -itd -p 9091:9091 -p 8081:8080 --name abc_project ${IMAGE_NAME}:${BUILD_NUMBER}
+					docker run -itd -p 9091:9090 -p 8081:8080 --name abc_project ${IMAGE_NAME}:${BUILD_NUMBER}
 					"""			
 				}
 			}
